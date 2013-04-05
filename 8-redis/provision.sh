@@ -29,10 +29,10 @@ then
   /etc/init.d/couchdb restart
 
   echo "Installing node.js"
-  apt-get -y install python-software-properties
-  add-apt-repository ppa:chris-lea/node.js
+  apt-get -y install python-software-properties g++ libtool
+  add-apt-repository -y ppa:chris-lea/node.js-devel
   apt-get -qq update
-  apt-get -y install nodejs nodejs-dev npm
+  apt-get -y install nodejs 
   npm install -g hiredis redis csv bricks mustache
 
   touch /home/vagrant/.done
