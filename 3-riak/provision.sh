@@ -1,6 +1,6 @@
 #! /bin/bash
 
-if [ ! -f /home/vagrant/riak-1.2.0/dev/dev1/bin/riak ]
+if [ ! -f /home/vagrant/riak-1.3.1/dev/dev1/bin/riak ]
 then
   echo "Installing pre-requisites"
   apt-get -qq update
@@ -19,16 +19,16 @@ then
   echo . /home/vagrant/erlang/r15b01/activate >> /home/vagrant/.profile 
 
   echo "Building Riak"
-  cp /vagrant/riak-1.2.0.tar.gz .
-  tar zxf riak-1.2.0.tar.gz
-  cd riak-1.2.0
+  cp /vagrant/riak-1.3.1.tar.gz .
+  tar zxf riak-1.3.1.tar.gz
+  cd riak-1.3.1
   make rel
   make devrel
   cd ..
-  chown -hR vagrant.vagrant riak-1.2.0 
-  sed -e '33 s/127.0.0.1/0.0.0.0/' -i riak-1.2.0/dev/dev1/etc/app.config
-  sed -e '33 s/127.0.0.1/0.0.0.0/' -i riak-1.2.0/dev/dev2/etc/app.config
-  sed -e '33 s/127.0.0.1/0.0.0.0/' -i riak-1.2.0/dev/dev3/etc/app.config
+  chown -hR vagrant.vagrant riak-1.3.1
+  sed -e '33 s/127.0.0.1/0.0.0.0/' -i riak-1.3.1/dev/dev1/etc/app.config
+  sed -e '33 s/127.0.0.1/0.0.0.0/' -i riak-1.3.1/dev/dev2/etc/app.config
+  sed -e '33 s/127.0.0.1/0.0.0.0/' -i riak-1.3.1/dev/dev3/etc/app.config
   
   echo "Done!"
 else
