@@ -10,12 +10,12 @@ then
   echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386/" >> /home/vagrant/.profile
 
   echo "Installing HBase"
-  tar xfz /vagrant/hbase-0.94.1.tar.gz
-  chown -hR vagrant.vagrant hbase-0.94.1
+  tar xfz /vagrant/hbase-0.94.6.1.tar.gz
+  chown -hR vagrant.vagrant hbase-0.94.6.1
 
-  echo "export HBASE_HOME=/home/vagrant/hbase-0.94.1" >> /home/vagrant/.profile
+  echo "export HBASE_HOME=/home/vagrant/hbase-0.94.6.1" >> /home/vagrant/.profile
   echo "export PATH=$PATH:${HBASE_HOME}/bin" >> /home/vagrant/.profile
-  cp /vagrant/hbase-site.xml /home/vagrant/hbase-0.94.1/conf 
+  cp /vagrant/hbase-site.xml /home/vagrant/hbase-0.94.6.1/conf 
   sed -e '2 s/127.0.1.1/127.0.0.1/' -i /etc/hosts
 
   echo "Installing Thrift for Day 3"
