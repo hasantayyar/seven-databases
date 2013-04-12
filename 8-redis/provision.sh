@@ -15,12 +15,12 @@ then
   apt-get -y install redis-server
 
   echo "Installing Neo4J"
-  tar xfz /vagrant/neo4j-enterprise-1.8-unix.tar.gz
-  chown -hR vagrant.vagrant neo4j-enterprise-1.8
+  tar xfz /vagrant/neo4j-enterprise-1.8.2-unix.tar.gz
+  chown -hR vagrant.vagrant neo4j-enterprise-1.8.2
 
-  echo "export NEO4J_HOME=/home/vagrant/neo4j-enterprise-1.8" >> /home/vagrant/.profile
+  echo "export NEO4J_HOME=/home/vagrant/neo4j-enterprise-1.8.2" >> /home/vagrant/.profile
   echo "export PATH=$PATH:${NEO4J_HOME}/bin" >> /home/vagrant/.profile
-  sed -e '17 s/#//' -i /home/vagrant/neo4j-enterprise-1.8/conf/neo4j-server.properties
+  sed -e '17 s/#//' -i /home/vagrant/neo4j-enterprise-1.8.2/conf/neo4j-server.properties
   sed -e '2 s/127.0.1.1/127.0.0.1/' -i /etc/hosts
 
   echo "Installing CouchDB"
