@@ -15,12 +15,12 @@ then
   apt-get -y install redis-server
 
   echo "Installing Neo4J"
-  tar xfz /vagrant/neo4j-enterprise-1.8-unix.tar.gz
-  chown -hR vagrant.vagrant neo4j-enterprise-1.8
+  tar xfz /vagrant/neo4j-enterprise-1.8.2-unix.tar.gz
+  chown -hR vagrant.vagrant neo4j-enterprise-1.8.2
 
-  echo "export NEO4J_HOME=/home/vagrant/neo4j-enterprise-1.8" >> /home/vagrant/.profile
+  echo "export NEO4J_HOME=/home/vagrant/neo4j-enterprise-1.8.2" >> /home/vagrant/.profile
   echo "export PATH=$PATH:${NEO4J_HOME}/bin" >> /home/vagrant/.profile
-  sed -e '17 s/#//' -i /home/vagrant/neo4j-enterprise-1.8/conf/neo4j-server.properties
+  sed -e '17 s/#//' -i /home/vagrant/neo4j-enterprise-1.8.2/conf/neo4j-server.properties
   sed -e '2 s/127.0.1.1/127.0.0.1/' -i /etc/hosts
 
   echo "Installing CouchDB"
@@ -29,10 +29,10 @@ then
   /etc/init.d/couchdb restart
 
   echo "Installing node.js"
-  apt-get -y install python-software-properties
-  add-apt-repository ppa:chris-lea/node.js
+  apt-get -y install python-software-properties g++ libtool
+  add-apt-repository -y ppa:chris-lea/node.js-devel
   apt-get -qq update
-  apt-get -y install nodejs nodejs-dev npm
+  apt-get -y install nodejs 
   npm install -g hiredis redis csv bricks mustache
 
   touch /home/vagrant/.done
